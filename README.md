@@ -1,12 +1,21 @@
-# React + Vite
+# Portfolyo Sitesi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bu proje, React + Vite ile geliştirilmiş bir portfolyo şablonudur.  
+Vite, hızlı geliştirme deneyimi ve HMR (Hot Module Replacement) desteği sağlar.
 
-Currently, two official plugins are available:
+## Teknik Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + Vite altyapısı
+- HMR (Hot Module Replacement) desteği
+- ESLint yapılandırması
 
-## Expanding the ESLint configuration
+## Kaynaklar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [Vite Plugin React (Babel)](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
+- [Vite Plugin React SWC](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
+
+## Tip Denetimi (Opsiyonel)
+
+Üretim amaçlı bir uygulama geliştiriyorsanız, TypeScript kullanmanızı öneririz.  
+Type-aware lint kuralları için Vite'nin TS şablonuna göz atabilirsiniz:  
+[TS Template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts)
