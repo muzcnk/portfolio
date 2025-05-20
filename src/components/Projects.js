@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaDatabase } from 'react-icons/fa';
 import { FaReact, FaFirebase, FaRobot } from 'react-icons/fa';
 import { SiElectron, SiOpenai } from 'react-icons/si';
 
