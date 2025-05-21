@@ -98,7 +98,7 @@
     opacity: 0;
   }
   .navbar-links.open {
-    height: 260px;
+    height: auto;
     padding: 1rem 0;
     display: flex;
     opacity: 1;
