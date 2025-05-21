@@ -4,7 +4,7 @@ Bu proje, React, HTML, CSS ve JavaScript kullanılarak geliştirilmiş modern ve
 
 ## 🚀 Proje Özellikleri
 
-- React ile komponent tabanlı mimari
+- React
 - CSS ile özelleştirilmiş stiller
 - HTML5 yapısı
 - Modern JavaScript (ES6+)
