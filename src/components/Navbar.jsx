@@ -1,55 +1,39 @@
-import { useState, useEffect } from 'react'
-import '../styles/Navbar.css'
+import React, { useState } from 'react';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+  const [navOpen, setNavOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section')
-      const scrollPosition = window.scrollY + 200
+  const handleNav = () => setNavOpen(!navOpen);
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop
-        const sectionHeight = section.clientHeight
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          setActiveSection(section.id)
-        }
-      })
+  const handleLinkClick = (e, id) => {
+    e.preventDefault();
+    setNavOpen(false);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
+  };
 
   return (
     <nav className="navbar">
-      <div className="nav-content">
-        <span className="name">Mert Uzunçakmak</span>
-        <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div className="navbar-container">
+        <span className="navbar-logo">Mert Uzunçakmak</span>
+        <button className="navbar-hamburger" onClick={handleNav} aria-label="Toggle navigation">
+          <span />
+          <span />
+          <span />
         </button>
-        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <li><a href="#home" className={activeSection === 'home' ? 'active' : ''} onClick={closeMenu}>Ana Sayfa</a></li>
-          <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={closeMenu}>Ben Kimim?</a></li>
-          <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={closeMenu}>Neler Yapabilirim?</a></li>
-          <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={closeMenu}>Portfolyo</a></li>
-          <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={closeMenu}>İletişim</a></li>
+        <ul className={`navbar-links${navOpen ? ' open' : ''}`}>
+          <li><a href="#home" onClick={e => handleLinkClick(e, 'home')}>Anasayfa</a></li>
+          <li><a href="#about" onClick={e => handleLinkClick(e, 'about')}>Hakkımda</a></li>
+          <li><a href="#skills" onClick={e => handleLinkClick(e, 'skills')}>Neler Yapabilirim</a></li>
+          <li><a href="#projects" onClick={e => handleLinkClick(e, 'projects')}>Portfolyo</a></li>
+          <li><a href="#contact" onClick={e => handleLinkClick(e, 'contact')}>İletişim</a></li>
         </ul>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar 
+export default Navbar; 

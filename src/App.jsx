@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Navbar from './components/navbar'
-import Home from './components/home'
-import About from './components/about'
-import Skills from './components/skills'
-import Projects from './components/projects'
-import Contact from './components/contact'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import About from './components/About'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
