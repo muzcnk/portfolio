@@ -10,7 +10,8 @@ const Home = () => {
         <p className="home-subtitle">Bilgisayar Mühendisliği Öğrencisi &amp; Flutter Developer</p>
         <div className="home-description">
           <p>
-           
+            Modern ve kullanıcı dostu uygulamalar geliştirmeye odaklanan bir yazılım geliştiricisiyim.
+            Flutter ile cross-platform çözümler üretiyor ve sürekli kendimi geliştiriyorum.
           </p>
         </div>
         <div className="home-buttons">

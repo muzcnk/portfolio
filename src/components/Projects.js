@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Projects.css';
+import projectBg from '../assets/project-bg.jpg';
 
 const projects = [
   {
@@ -7,7 +8,7 @@ const projects = [
     description:
       'OpenAI API, Firebase, React ve Electron kullanılarak yapay zekâ destekli bir masaüstü sohbet uygulaması.',
     technologies: ['React', 'Electron', 'Firebase', 'OpenAI API'],
-    image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+    image: projectBg,
     github: '#',
     live: '#',
   },
@@ -16,7 +17,7 @@ const projects = [
     description:
       'Kullanıcı dostu arayüze sahip, güvenli ve modern bir yapılacaklar listesi uygulaması.',
     technologies: ['Flutter', 'Firebase', 'Dart'],
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+    image: projectBg,
     github: '#',
     live: '#',
   },
@@ -30,9 +31,10 @@ const Projects = () => {
         <div className="projects-grid">
           {projects.map((project, idx) => (
             <div className="project-card" key={idx}>
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-              </div>
+              <div
+                className="project-image"
+                style={{ backgroundImage: `url(${project.image})` }}
+              />
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>

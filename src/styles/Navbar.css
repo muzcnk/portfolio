@@ -23,9 +23,9 @@
   color: #c0c0c0;
   text-decoration: none;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 1px;
-  font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+  font-family: 'Montserrat', 'Inter', sans-serif;
 }
 
 .navbar-hamburger {
@@ -60,15 +60,16 @@
   height: 100%;
   cursor: pointer;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s;
   position: relative;
+  font-family: 'Montserrat', 'Inter', sans-serif;
 }
 
 .nav-link.active,
 .nav-link:focus,
 .nav-link:hover {
-  color: #00ff88;
+  color: #fff;
 }
 
 .nav-link.active::after {
