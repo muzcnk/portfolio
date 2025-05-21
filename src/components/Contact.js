@@ -1,8 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import '../styles/Contact.css';
 
 const Contact = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,7 +48,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section contact">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className={`section contact ${isVisible ? 'is-visible' : ''}`}
+    >
       <div className="contact-container">
         <h2 className="section-title">İletişim</h2>
         <div className="contact-content">

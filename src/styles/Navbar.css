@@ -13,7 +13,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 70px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,7 +81,7 @@
   }
   .navbar-links {
     position: absolute;
-    top: 70px;
+    top: 56px;
     right: 0;
     background: #101624;
     flex-direction: column;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { FaCode, FaMobileAlt, FaDatabase, FaUsers, FaPython, FaJava, FaJs, FaCuttlefish } from 'react-icons/fa';
 import '../styles/Skills.css';
 
@@ -38,8 +38,36 @@ const skills = [
 ];
 
 const Skills = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="skills" className="section skills">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className={`section skills ${isVisible ? 'is-visible' : ''}`}
+    >
       <div className="skills-container">
         <h2 className="section-title">Neler Yapabilirim?</h2>
         <div className="skills-grid">

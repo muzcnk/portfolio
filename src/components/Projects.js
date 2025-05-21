@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../styles/Projects.css';
 import projectBg from '../assets/project-bg.jpg';
 
@@ -24,8 +24,36 @@ const projects = [
 ];
 
 const Projects = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="projects" className="section projects">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className={`section projects ${isVisible ? 'is-visible' : ''}`}
+    >
       <div className="projects-container">
         <h2 className="section-title">Portfolyo</h2>
         <div className="projects-grid">

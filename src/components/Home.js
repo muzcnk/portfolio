@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import '../styles/Home.css';
 
 const Home = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -11,7 +35,11 @@ const Home = () => {
   }
 
   return (
-    <section id="home" className="section home">
+    <section
+      id="home"
+      ref={sectionRef}
+      className={`section home ${isVisible ? 'is-visible' : ''}`}
+    >
       <div className="home-container">
         <h1 className="home-title">Mert Uzunçakmak</h1>
         <p className="home-subtitle">Bilgisayar Mühendisliği Öğrencisi &amp; Flutter Developer</p>
