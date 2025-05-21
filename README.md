@@ -1,21 +1,24 @@
-# Portfolyo Sitesi
+# 🖥️ Portfolyo Sitesi
 
-Bu proje, React + Vite ile geliştirilmiş bir portfolyo şablonudur.  
-Vite, hızlı geliştirme deneyimi ve HMR (Hot Module Replacement) desteği sağlar.
+Bu proje, React, HTML, CSS ve JavaScript kullanılarak geliştirilmiş modern ve responsive bir web sitesidir. Kullanıcı dostu arayüzüyle hem masaüstü hem mobil cihazlarda sorunsuz çalışacak şekilde tasarlanmıştır.
 
-## Teknik Özellikler
+## 🚀 Proje Özellikleri
 
-- React + Vite altyapısı
-- HMR (Hot Module Replacement) desteği
-- ESLint yapılandırması
+- React ile komponent tabanlı mimari
+- CSS ile özelleştirilmiş stiller
+- HTML5 yapısı
+- Modern JavaScript (ES6+)
+- Responsive tasarım
+- Kolay özelleştirme
 
-## Kaynaklar
+> Görsel kaynakları: [Unsplash](https://unsplash.com), [Pexels](https://pexels.com) gibi.
 
-- [Vite Plugin React (Babel)](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
-- [Vite Plugin React SWC](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
+## 📦 Kurulum
 
-## Tip Denetimi (Opsiyonel)
+Projenin bir kopyasını yerel makinenize klonlayarak başlatabilirsiniz.
 
-Üretim amaçlı bir uygulama geliştiriyorsanız, TypeScript kullanmanızı öneririz.  
-Type-aware lint kuralları için Vite'nin TS şablonuna göz atabilirsiniz:  
-[TS Template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts)
+```bash
+git clone https://github.com/kullaniciadi/proje-adi.git
+cd proje-adi
+npm install
+npm start
