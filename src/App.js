@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -10,18 +9,20 @@ import './styles/App.css';
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <main>
-          <Home />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-      </div>
-    </Router>
+    <div
+      style={{
+        minHeight: '100vh',
+        background: "url('/background.jpg') no-repeat center center fixed",
+        backgroundSize: 'cover',
+      }}
+    >
+      <Navbar />
+      <Home />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+    </div>
   );
 }
 

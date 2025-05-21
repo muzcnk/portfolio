@@ -34,9 +34,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-content">
-        <div className="logo minimal-font">
-          Mert Uzunçakmak
-        </div>
+        <span className="name">Mert Uzunçakmak</span>
         <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Menu">
           <span></span>
           <span></span>

@@ -1,72 +1,56 @@
 import React from 'react';
-import { FaDatabase } from 'react-icons/fa';
-import { FaReact, FaFirebase, FaRobot } from 'react-icons/fa';
-import { SiElectron, SiOpenai } from 'react-icons/si';
+import '../styles/Projects.css';
+
+const projects = [
+  {
+    title: 'Masaüstü Chatbot Uygulaması',
+    description:
+      'OpenAI API, Firebase, React ve Electron kullanılarak yapay zekâ destekli bir masaüstü sohbet uygulaması.',
+    technologies: ['React', 'Electron', 'Firebase', 'OpenAI API'],
+    image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
+    github: '#',
+    live: '#',
+  },
+  {
+    title: 'Todo Uygulaması',
+    description:
+      'Kullanıcı dostu arayüze sahip, güvenli ve modern bir yapılacaklar listesi uygulaması.',
+    technologies: ['Flutter', 'Firebase', 'Dart'],
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+    github: '#',
+    live: '#',
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Masaüstü Chatbot Uygulaması',
-      description: 'OpenAI API, Firebase, React ve Electron kullanarak masaüstü bir chatbot uygulaması geliştirdik.',
-      image: '/assets/bgc.jpg',
-      features: [
-        'OpenAI API entegrasyonu',
-        'Firebase ile veri yönetimi',
-        'React ve Electron ile masaüstü uygulaması',
-        'Gerçek zamanlı sohbet özelliği'
-      ],
-      technologies: [
-        { icon: <FaReact />, name: 'React' },
-        { icon: <FaFirebase />, name: 'Firebase' },
-        { icon: <SiElectron />, name: 'Electron' },
-        { icon: <SiOpenai />, name: 'OpenAI' }
-      ]
-    },
-    {
-      title: 'Basit Todo Uygulaması',
-      description: 'Kullanıcıların kayıt olup giriş yapabildiği, yapılacaklar listesi oluşturabildiği bir uygulama.',
-      image: '/assets/bgc.jpg',
-      features: [
-        'Kullanıcı kimlik doğrulama',
-        'Yerel veri depolama',
-        'Güvenli ve kullanıcı dostu arayüz',
-        'Görev yönetimi özellikleri'
-      ],
-      technologies: [
-        { icon: <FaReact />, name: 'React' },
-        { icon: <FaDatabase />, name: 'Local Storage' }
-      ]
-    }
-  ];
-
   return (
-    <section id="projects" className="section fade-in">
-      <div className="container">
+    <section id="projects" className="projects">
+      <div className="projects-container">
         <h2 className="section-title">Portfolyo</h2>
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card fade-in">
-              <div 
-                className="project-image" 
-                style={{ backgroundImage: `url(${project.image})` }}
-              />
+          {projects.map((project, idx) => (
+            <div className="project-card" key={idx}>
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
+              </div>
               <div className="project-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-features">
-                  <ul>
-                    {project.features.map((feature, idx) => (
-                      <li key={idx}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="project-tech">
-                  {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="project-tag">
-                      {tech.icon} {tech.name}
-                    </span>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="project-technologies">
+                  {project.technologies.map((tech, tIdx) => (
+                    <span className="technology-tag" key={tIdx}>{tech}</span>
                   ))}
                 </div>
+                {/*
+                <div className="project-links">
+                  <a href={project.github} className="project-link" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                  </a>
+                  <a href={project.live} className="project-link" target="_blank" rel="noopener noreferrer">
+                    Canlı Demo
+                  </a>
+                </div>
+                */}
               </div>
             </div>
           ))}
