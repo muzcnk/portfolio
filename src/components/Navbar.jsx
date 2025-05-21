@@ -2,34 +2,34 @@ import React, { useState } from 'react';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
-  const [navOpen, setNavOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleNav = () => setNavOpen(!navOpen);
-
-  const handleLinkClick = (e, id) => {
-    e.preventDefault();
-    setNavOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      // Close the mobile menu when a link is clicked
+      setIsOpen(false);
     }
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <span className="navbar-logo">Mert Uzunçakmak</span>
-        <button className="navbar-hamburger" onClick={handleNav} aria-label="Toggle navigation">
-          <span />
-          <span />
-          <span />
+        <div className="navbar-logo" onClick={() => scrollToSection('home')}>
+          Mert Uzunçakmak
+        </div>
+        <button className="navbar-hamburger" onClick={() => setIsOpen(!isOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <ul className={`navbar-links${navOpen ? ' open' : ''}`}>
-          <li><a href="#home" onClick={e => handleLinkClick(e, 'home')}>Anasayfa</a></li>
-          <li><a href="#about" onClick={e => handleLinkClick(e, 'about')}>Hakkımda</a></li>
-          <li><a href="#skills" onClick={e => handleLinkClick(e, 'skills')}>Neler Yapabilirim</a></li>
-          <li><a href="#projects" onClick={e => handleLinkClick(e, 'projects')}>Portfolyo</a></li>
-          <li><a href="#contact" onClick={e => handleLinkClick(e, 'contact')}>İletişim</a></li>
+        <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
+          <li><button onClick={() => scrollToSection('home')}>Anasayfa</button></li>
+          <li><button onClick={() => scrollToSection('about')}>Hakkımda</button></li>
+          <li><button onClick={() => scrollToSection('skills')}>Yetenekler</button></li>
+          <li><button onClick={() => scrollToSection('projects')}>Portfolyo</button></li>
+          <li><button onClick={() => scrollToSection('contact')}>İletişim</button></li>
         </ul>
       </div>
     </nav>
